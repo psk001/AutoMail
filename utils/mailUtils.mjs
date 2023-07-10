@@ -8,9 +8,9 @@ export async function replyToEmail(gmail, threadId, subject, from, body) {
     { name: "Subject", value: `Re: ${subject}` },
   ];
   const email = {
-    raw: createMessage(headers, encodedReply),
+    raw: createMessage(headers, replyBody),
     threadId: threadId,
-    labelIds: ["INBOX", "SENT", "UNREAD", "REPLIED", "AutoReply"],
+    labelIds: [ "SENT", "REPLIED", "AutoReply"],
   };
 
   gmail.users.messages.send(
